@@ -15,7 +15,6 @@ const outputDirectory = buildDirectory + '/client';
 const config: Configuration = {
   mode: 'development',
   output: {
-    publicPath: '/',
     path: path.join(__dirname, outputDirectory),
     filename: 'bundle.js'
   },
@@ -35,6 +34,10 @@ const config: Configuration = {
             ]
           }
         }
+      },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader', 'postcss-loader']
       },
       {
         test: /\.(png|jp(e*)g|svg|gif)$/,
